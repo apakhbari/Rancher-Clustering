@@ -19,6 +19,23 @@
 - Hardware requirementes: https://docs.rke2.io/install/requirements
 - Supported Kubernetes Platforms for Rancher Manager: https://www.suse.com/suse-rancher/support-matrix/all-supported-versions/rancher-v2-7-9/
 
+# Implementation
+- Note that some tools, such as kubectl, are installed by default into ```/var/lib/rancher/rke2/bin```
+- Leverage the KUBECONFIG environment variable:
+```
+export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
+kubectl get pods --all-namespaces
+helm ls --all-namespaces
+```
+- Accessing the Cluster from Outside with kubectl: Copy ```/etc/rancher/rke2/rke2.yaml``` on your machine located outside the cluster as ```~/.kube/config``` Then replace 127.0.0.1 with the IP or hostname of your RKE2 server. kubectl can now manage your RKE2 cluster.
+
+# Creating Snapshots
+- ```/var/lib/rancher/rke2/server/db/snapshots``` --> The snapshot directory defaults
+- In RKE2, snapshots are stored on each etcd node. If you have multiple etcd or etcd + control-plane nodes, you will have multiple copies of local etcd snapshots.
+- You can take a snapshot manually while RKE2 is running with the etcd-snapshot subcommand. For example: ```$ rke2 etcd-snapshot save --name pre-upgrade-snapshot```
+- By default, Rancher snapshots every 12 hours
+- You can list local snapshots with the ```$ etcd-snapshot ls```
+
 
 
 
@@ -32,8 +49,11 @@ APA 🖖🏻
  https://ranchermanager.docs.rancher.com/reference-guides/rancher-manager-architecture/architecture-recommendations#environment-for-kubernetes-installations
 - Setting up a High-availability RKE2 Kubernetes Cluster for Rancher: https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-cluster-setup/rke2-for-rancher
 ---
-- RKE2 High Availability Pre-Deployment & Installation Guide:
- https://docs.expertflow.com/cx/4.3/rke2-high-availability-pre-deployment-installati-1
+- RKE2 High Availability Pre-Deployment & Installation Guide: https://docs.expertflow.com/cx/4.3/rke2-high-availability-pre-deployment-installati-1
+---
+- Teraform:
+- rancher2_cluster_v2 Resource: https://registry.terraform.io/providers/rancher/rancher2/latest/docs/resources/cluster_v2
+- terraform-vsphere-rke2: https://gricad-gitlab.univ-grenoble-alpes.fr/kubernetes-alpes/terraform-vsphere-rke2
 ---
 - Introduction to Rancher: On-prem Kubernetes: https://github.com/marcel-dempers/docker-development-youtube-series/tree/master/kubernetes/rancher
 - Title: Setting Up an On-Premises Rancher Cluster with k3s, Helm and Hyper-V Manager(2023): https://medium.com/@saadullahkhanwarsi/title-setting-up-an-on-premise-k3s-cluster-with-rancher-helm-and-hyper-v-manager-cc888edb178c
