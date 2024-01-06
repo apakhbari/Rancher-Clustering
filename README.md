@@ -21,6 +21,13 @@
 - Hardware requirementes: https://docs.rke2.io/install/requirements
 - Supported Kubernetes Platforms for Rancher Manager: https://www.suse.com/suse-rancher/support-matrix/all-supported-versions/rancher-v2-7-9/
 
+
+## Which OS to use
+- Suse bought Rancher in 2023
+- What is your OS of choice to run k8s ON PREM (Poll): https://www.reddit.com/r/kubernetes/comments/11kw5ss/poll_what_is_your_os_of_choice_to_run_k8s_on_prem/
+- Ubuntu: flexibility for additional addons and tweaks for some of my runtime and storage solutions. While I don't love Ubuntu, and hate snap, I can disable all of the bloat and still get the benefits of a popular and well-maintained distro that I can be sure stays mostly up-to-date, and get all the host flexibility I need.
+- The standard OS for Kubernetes is Ubuntu as it is used by CNCF in CKA/CKAD courses
+
 ## Implementation
 - Note that some tools, such as kubectl, are installed by default into ```/var/lib/rancher/rke2/bin```
 - Leverage the KUBECONFIG environment variable:
@@ -55,12 +62,21 @@ systemctl start rke2-server
 - Manifests deployed in this manner are managed as AddOn custom resources, and can be viewed by running ```$ kubectl get addon -A```
 - You will find AddOns for packaged components such as CoreDNS, Nginx-Ingress, etc. AddOns are created automatically by the deploy controller, and are named based on their filename in the manifests directory.
 
+## ISTIO
+- Install Istio with the Istio CNI plugin: https://istio.io/latest/docs/setup/additional-setup/cni/
+- https://ranchermanager.docs.rancher.com/pages-for-subheaders/istio
+- https://ranchermanager.docs.rancher.com/pages-for-subheaders/istio-setup-guide
+- https://ranchermanager.docs.rancher.com/how-to-guides/advanced-user-guides/istio-setup-guide/enable-istio-in-cluster
+
+
 # acknowledgment
 ## Contributors
 
 APA 🖖🏻
 
 ## Links
+- Kubernetes Master Class: GitOps, Rancher and ArgoCD with Codefresh (Rancher by suse channel) : https://youtu.be/3zrhC3iALRk?si=6HmEiiMuHvqj2yH-
+---
 - Architecture Recommendations:
  https://ranchermanager.docs.rancher.com/reference-guides/rancher-manager-architecture/architecture-recommendations#environment-for-kubernetes-installations
 - Setting up a High-availability RKE2 Kubernetes Cluster for Rancher: https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-cluster-setup/rke2-for-rancher
