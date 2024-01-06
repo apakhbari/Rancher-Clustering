@@ -68,6 +68,11 @@ systemctl start rke2-server
 - https://ranchermanager.docs.rancher.com/pages-for-subheaders/istio-setup-guide
 - https://ranchermanager.docs.rancher.com/how-to-guides/advanced-user-guides/istio-setup-guide/enable-istio-in-cluster
 
+## Candidate OSs
+- https://vmware.github.io/photon/
+- https://github.com/kairos-io/kairos
+- https://www.talos.dev/v1.3/introduction/getting-started/
+- https://en.opensuse.org/Portal:MicroOS
 
 # acknowledgment
 ## Contributors
