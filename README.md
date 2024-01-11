@@ -21,6 +21,30 @@
 - Hardware requirementes: https://docs.rke2.io/install/requirements
 - Supported Kubernetes Platforms for Rancher Manager: https://www.suse.com/suse-rancher/support-matrix/all-supported-versions/rancher-v2-7-9/
 
+## Inbound Network Rules
+|Protocol	|Port|	Source|	Destination|	Description|
+| --- | --- | --- | --- | --- |
+|TCP|	9345|	RKE2 agent nodes |	RKE2 server nodes |	RKE2 supervisor API
+TCP|	6443	RKE2 agent nodes	| RKE2 server nodes	|Kubernetes API
+UDP|	8472	|All RKE2 nodes	| All RKE2 nodes |	Required only for Flannel VXLAN
+TCP|	10250	|All RKE2 nodes	|All RKE2 nodes |	kubelet metrics
+TCP	|2379 |	RKE2 server nodes	|RKE2 server nodes |	etcd client port
+TCP	|2380	|RKE2 server nodes |	RKE2 server nodes	| etcd peer port
+TCP	|2381	|RKE2 server nodes |	RKE2 server nodes |	etcd metrics port
+TCP	|30000-32767|	All RKE2 nodes |	All RKE2 nodes |	NodePort port range
+UDP	|8472|	All RKE2 nodes |	All RKE2 nodes |	Cilium CNI VXLAN
+TCP	|4240|	All RKE2 nodes |	All RKE2 nodes |	Cilium CNI health checks
+ICMP|	8/0|	All RKE2 nodes	| All RKE2 nodes |	Cilium CNI health checks
+TCP	|179|	All RKE2 nodes |	All RKE2 nodes |	Calico CNI with BGP
+UDP	|4789|	All RKE2 nodes |	All RKE2 nodes |	Calico CNI with VXLAN
+TCP	|5473|	All RKE2 nodes |	All RKE2 nodes |	Calico CNI with Typha
+TCP	|9098|	All RKE2 nodes |	All RKE2 nodes |	Calico Typha health checks
+TCP	|9099|	All RKE2 nodes |	All RKE2 nodes |	Calico health checks
+TCP	|5473	|All RKE2 nodes |	All RKE2 nodes |	Calico CNI with Typha
+UDP	|8472	|All RKE2 nodes |	All RKE2 nodes |	Canal CNI with VXLAN
+TCP	|9099	|All RKE2 nodes |	All RKE2 nodes |	Canal CNI health checks
+UDP	|51820|	All RKE2 nodes |	All RKE2 nodes |	Canal CNI with WireGuard IPv4
+UDP	|51821|	All RKE2 nodes |	All RKE2 nodes |	Canal CNI with WireGuard IPv6/dual-stack
 
 ## Which OS to use
 - Suse bought Rancher in 2023
