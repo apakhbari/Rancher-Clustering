@@ -74,6 +74,21 @@ systemctl enable rke2-server
 systemctl start rke2-server
 ```
 
+## Schema
+Cluster consists of:
+
+| Machine | OS | IP + MAC Address | Resources |
+| --- | --- | --- | --- |
+| rancher-ubuntu2204 (WEB) | Ubuntu 22.04.03 LTS | 192.168.100.100 | CPU: 8 - Memory: 16 - HDD: 80 GB - Network: VM |
+| --- | --- | --- | --- |
+| k8s-control-plane-1 | Ubuntu 22.04.03 LTS | 192.168.100.101 | CPU: 4 - Memory: 8 - HDD: 50 GB - Network: VM |
+| k8s-control-plane-2 | Ubuntu 22.04.03 LTS | 192.168.100.102 | CPU: 4 - Memory: 8 - HDD: 50 GB- Network: VM |
+| k8s-control-plane-3 | Ubuntu 22.04.03 LTS | 192.168.100.103 | CPU: 4 - Memory: 8 - HDD: 50 GB - Network: VM |
+| --- | --- | --- | --- |
+| k8s-worker-1 | Ubuntu 22.04.03 LTS | 192.168.100.111 | CPU: 4 - Memory: 8 - HDD: 50 GB - Network: VM |
+| k8s-worker-2 | Ubuntu 22.04.03 LTS | 192.168.100.112 | CPU: 4 - Memory: 8 - HDD: 50 GB - Network: VM |
+
+
 ## Creating Snapshots
 - ```/var/lib/rancher/rke2/server/db/snapshots``` --> The snapshot directory defaults
 - In RKE2, snapshots are stored on each etcd node. If you have multiple etcd or etcd + control-plane nodes, you will have multiple copies of local etcd snapshots.
