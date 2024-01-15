@@ -94,6 +94,12 @@ IMPORTANT: Stop UFW Service / Give appropiate permissions to it before starting 
 $ docker run -d --name rancher-server  -v ${PWD}/volume:/var/lib/rancher --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher
 ```
 
+For getting Login Password with Admin User:
+```
+docker logs  container-id  2>&1 | grep "Bootstrap Password:"
+```
+
+
 ## Creating Snapshots
 - ```/var/lib/rancher/rke2/server/db/snapshots``` --> The snapshot directory defaults
 - In RKE2, snapshots are stored on each etcd node. If you have multiple etcd or etcd + control-plane nodes, you will have multiple copies of local etcd snapshots.
