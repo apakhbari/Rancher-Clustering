@@ -79,15 +79,20 @@ Cluster consists of:
 
 | Machine | OS | IP + MAC Address | Resources |
 | --- | --- | --- | --- |
-| rancher-ubuntu2204 (WEB) | Ubuntu 22.04.03 LTS | 192.168.100.100 | CPU: 8 - Memory: 16 - HDD: 80 GB - Network: VM |
+| k8s-rancher (WEB) | Ubuntu 22.04.03 LTS | 192.168.100.100 | CPU: 8 - Memory: 16 - HDD: 80 GB - Network: k8s |
 | --- | --- | --- | --- |
-| k8s-control-plane-1 | Ubuntu 22.04.03 LTS | 192.168.100.101 | CPU: 4 - Memory: 8 - HDD: 50 GB - Network: VM |
-| k8s-control-plane-2 | Ubuntu 22.04.03 LTS | 192.168.100.102 | CPU: 4 - Memory: 8 - HDD: 50 GB- Network: VM |
-| k8s-control-plane-3 | Ubuntu 22.04.03 LTS | 192.168.100.103 | CPU: 4 - Memory: 8 - HDD: 50 GB - Network: VM |
+| k8s-control-plane-1 | Ubuntu 22.04.03 LTS | 192.168.100.101 | CPU: 4 - Memory: 8 - HDD: 50 GB - Network: k8s |
+| k8s-control-plane-2 | Ubuntu 22.04.03 LTS | 192.168.100.102 | CPU: 4 - Memory: 8 - HDD: 50 GB- Network: k8s |
+| k8s-control-plane-3 | Ubuntu 22.04.03 LTS | 192.168.100.103 | CPU: 4 - Memory: 8 - HDD: 50 GB - Network: k8s |
 | --- | --- | --- | --- |
-| k8s-worker-1 | Ubuntu 22.04.03 LTS | 192.168.100.111 | CPU: 4 - Memory: 8 - HDD: 50 GB - Network: VM |
-| k8s-worker-2 | Ubuntu 22.04.03 LTS | 192.168.100.112 | CPU: 4 - Memory: 8 - HDD: 50 GB - Network: VM |
+| k8s-worker-1 | Ubuntu 22.04.03 LTS | 192.168.100.111 | CPU: 4 - Memory: 8 - HDD: 50 GB - Network: k8s |
+| k8s-worker-2 | Ubuntu 22.04.03 LTS | 192.168.100.112 | CPU: 4 - Memory: 8 - HDD: 50 GB - Network: k8s |
 
+## Running Rancher in Docker
+
+```
+$ docker run -d --name rancher-server  -v ${PWD}/volume:/var/lib/rancher --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher
+```
 
 ## Creating Snapshots
 - ```/var/lib/rancher/rke2/server/db/snapshots``` --> The snapshot directory defaults
