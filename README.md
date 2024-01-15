@@ -89,7 +89,7 @@ Cluster consists of:
 | k8s-worker-2 | Ubuntu 22.04.03 LTS | 192.168.100.112 | CPU: 4 - Memory: 8 - HDD: 50 GB - Network: k8s |
 
 ## Running Rancher in Docker
-
+IMPORTANT: Stop UFW Service / Give appropiate permissions to it before starting Rancher
 ```
 $ docker run -d --name rancher-server  -v ${PWD}/volume:/var/lib/rancher --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher
 ```
