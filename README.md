@@ -87,6 +87,11 @@ Cluster consists of:
 | --- | --- | --- | --- |
 | k8s-worker-1 | Ubuntu 22.04.03 LTS | 192.168.100.111 | CPU: 4 - Memory: 8 - HDD: 50 GB - Network: k8s |
 | k8s-worker-2 | Ubuntu 22.04.03 LTS | 192.168.100.112 | CPU: 4 - Memory: 8 - HDD: 50 GB - Network: k8s |
+| --- | --- | --- | --- |
+| k8s-storage-1 | Ubuntu 22.04.03 LTS | 192.168.100.121 | CPU: 4 - Memory: 6144 MB - HDD: 120 GB - Network: k8s |
+| k8s-storage-2 | Ubuntu 22.04.03 LTS | 192.168.100.122 | CPU: 4 - Memory: 6144 MB - HDD: 120 GB - Network: k8s |
+
+
 
 ## Running Rancher in Docker
 IMPORTANT: Stop UFW Service / Give appropiate permissions to it before starting Rancher
@@ -112,6 +117,33 @@ docker logs  container-id  2>&1 | grep "Bootstrap Password:"
 - Manifests deployed in this manner are managed as AddOn custom resources, and can be viewed by running ```$ kubectl get addon -A```
 - You will find AddOns for packaged components such as CoreDNS, Nginx-Ingress, etc. AddOns are created automatically by the deploy controller, and are named based on their filename in the manifests directory.
 
+## Longhorn
+### Set it up
+1. Create a project called storage
+2. Install longhorn from: Apps > Lunch > find longhorn
+3. Keep options on its default. Keep Default storage class true, whether or not expose app using Layer 7 LB should be false
+
+## Tips & Tricks
+- You can use existing nodes and reclaim their free storage + It is possible to create nodes and dedicate them just to storage.
+- volumes are mounted inside Nodes in /var/lib/longhorn
+- It is best practice to Add tags to dedicated storage
+- Set up backup outside of your cluster, recommendation: MINIO(s3 storage) - NFS
+
+## Dedicated Storage Nodes
+approach 1: 
+- Longhorn UI > Nodes > Edit > Node Scheduling Disable (for not dedicated nodes)
+approach 2:
+- Tainting my storage nodes using this command
+```
+kubectl taint nodes luna-01 luna-02 luna-03 luna-04 CriticalAddonsOnly=true:NoExecute
+kubectl taint nodes luna-01 luna-02 luna-03 luna-04 StorageOnly=true:NoExecute
+```
+Then applying that toleration to Longhorn in settings
+```
+StorageOnly=true:NoExecute;CriticalAddonsOnly=true:NoExecute
+```
+This ensures that the storage nodes won’t take on any general workloads and still allow Lonhorn to use these as storage.
+
 ## ISTIO
 - Install Istio with the Istio CNI plugin: https://istio.io/latest/docs/setup/additional-setup/cni/
 - https://ranchermanager.docs.rancher.com/pages-for-subheaders/istio
@@ -123,6 +155,7 @@ docker logs  container-id  2>&1 | grep "Bootstrap Password:"
 - https://github.com/kairos-io/kairos
 - https://www.talos.dev/v1.3/introduction/getting-started/
 - https://en.opensuse.org/Portal:MicroOS
+
 
 # acknowledgment
 ## Contributors
