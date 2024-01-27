@@ -184,7 +184,6 @@ APA 🖖🏻
 Simple RKE2, Longhorn, and Rancher Install: https://ranchergovernment.com/blog/article-simple-rke2-longhorn-and-rancher-install
 
 
-
 ```                                                                                                       
   aaaaaaaaaaaaa  ppppp   ppppppppp     aaaaaaaaaaaaa   
   a::::::::::::a p::::ppp:::::::::p    a::::::::::::a  
