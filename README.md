@@ -194,7 +194,8 @@ APA 🖖🏻
 
 ---
 Simple RKE2, Longhorn, and Rancher Install: https://ranchergovernment.com/blog/article-simple-rke2-longhorn-and-rancher-install
-
+---
+- Removing Kubernetes Components from Nodes: https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/manage-clusters/clean-cluster-nodes
 
 ```                                                                                                       
   aaaaaaaaaaaaa  ppppp   ppppppppp     aaaaaaaaaaaaa   
