@@ -193,7 +193,7 @@ APA 🖖🏻
 - Setup Kubernetes cluster using Rancher 2.x (2019): https://medium.com/@torkashvand/https-medium-com-setup-kubernetes-cluster-using-rancher-2-x-a70f004de0f5
 
 ---
-Simple RKE2, Longhorn, and Rancher Install: https://ranchergovernment.com/blog/article-simple-rke2-longhorn-and-rancher-install
+- Simple RKE2, Longhorn, and Rancher Install: https://ranchergovernment.com/blog/article-simple-rke2-longhorn-and-rancher-install
 ---
 - Removing Kubernetes Components from Nodes: https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/manage-clusters/clean-cluster-nodes
 
