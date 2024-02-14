@@ -97,11 +97,11 @@ Other Cluster
 | k8s-rancher (WEB) | Ubuntu 22.04.03 LTS | 192.168.2.200 | CPU: 8 - Memory: 16 - HDD: 50 GB - Network: VM Network|
 | --- | --- | --- | --- |
 | k8s-control-plane-1 | Ubuntu 22.04.03 LTS | 192.168.2.201 | CPU: 4 - Memory: 12 - HDD: 40 GB - Network: VM Network|
-| k8s-control-plane-2 | Ubuntu 22.04.03 LTS | 192.168.2.202 | CPU: 4 - Memory: 4 - HDD: 40 GB- Network: VM Network|
+| k8s-control-plane-2 | Ubuntu 22.04.03 LTS | 192.168.2.202 | CPU: 8 - Memory: 10 - HDD: 40 GB- Network: VM Network|
 | --- | --- | --- | --- |
 | k8s-worker-1 | Ubuntu 22.04.03 LTS | 192.168.2.211 | CPU: 4 - Memory: 12 - HDD: 80 GB - Network: VM Network|
-| k8s-worker-2 | Ubuntu 22.04.03 LTS | 192.168.2.212 | CPU: 4 - Memory: 4 - HDD: 80 GB - Network: VM Network|
-
+| k8s-worker-2 | Ubuntu 22.04.03 LTS | 192.168.2.212 | CPU: 6 - Memory: 10 - HDD: 80 GB - Network: VM Network|
+| k8s-worker-3 | Ubuntu 22.04.03 LTS | 192.168.2.213 | CPU: 8 - Memory: 16 - HDD: 80 GB - Network: VM Network|
 
 
 ## Running Rancher in Docker
