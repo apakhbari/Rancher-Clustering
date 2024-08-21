@@ -10,6 +10,7 @@
                                                                                         |___/ 
 ```
 
+
 ## Tips & Tricks
 - RAncher can be run on anything, K8s cluster, dedicated VM, on Prem machine, Outside of k8s infra.
 - As long as Rancher can reach IP Addresses of machines that are k8s nodes, You are good to go.
