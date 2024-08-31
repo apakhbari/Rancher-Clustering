@@ -16,7 +16,6 @@
 - As long as Rancher can reach IP Addresses of machines that are k8s nodes, You are good to go.
 - Rancher is source of truths for k8s cluster, so make sure its HA + Its Data is persistent
 - By default, certificates in RKE2 expire in 12 months. If the certificates are expired or have fewer than 90 days remaining before they expire, the certificates are rotated when RKE2 is restarted.
-- 
 
 ## Requirements
 - Hardware requirementes: https://docs.rke2.io/install/requirements
