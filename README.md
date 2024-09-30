@@ -195,7 +195,6 @@ APA 🖖🏻
 - Title: Setting Up an On-Premises Rancher Cluster with k3s, Helm and Hyper-V Manager(2023): https://medium.com/@saadullahkhanwarsi/title-setting-up-an-on-premise-k3s-cluster-with-rancher-helm-and-hyper-v-manager-cc888edb178c
 - Setup local kubernetes multi-node cluster with Rancher Server (2019): https://kwonghung-yip.medium.com/setup-local-kubernetes-multi-node-cluster-with-rancher-server-fdb7a0669b5c
 - Setup Kubernetes cluster using Rancher 2.x (2019): https://medium.com/@torkashvand/https-medium-com-setup-kubernetes-cluster-using-rancher-2-x-a70f004de0f5
-
 ---
 - Simple RKE2, Longhorn, and Rancher Install: https://ranchergovernment.com/blog/article-simple-rke2-longhorn-and-rancher-install
 ---
