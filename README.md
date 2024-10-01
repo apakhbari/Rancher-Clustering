@@ -62,7 +62,6 @@ helm ls --all-namespaces
 
 # Starting the Server with the Installation Script
 The installation script provides units for systemd, but does not enable or start the service by default.
-
 When running with systemd, logs will be created in /var/log/syslog and viewed using journalctl -u rke2-server or journalctl -u rke2-agent.
 
 An example of installing with the install script:
